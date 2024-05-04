@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: test.ConstructorTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.673 s - in test.ConstructorTest

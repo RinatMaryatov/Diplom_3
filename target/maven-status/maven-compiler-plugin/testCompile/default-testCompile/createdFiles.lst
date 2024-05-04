@@ -1,0 +1,15 @@
+test\LoginTest.class
+test\RegistrationTest.class
+pages\LoginPage.class
+pages\PasswordRecoveryPage.class
+test\ConstructorTest.class
+test\LogoutTest.class
+pages\MainPage.class
+helpers\api\user\UserMethods.class
+test\Base.class
+pages\PersonalAccount.class
+helpers\Urls.class
+test\ToConstructorTest.class
+pages\RegistrationPage.class
+test\ToPersonalAccountTest.class
+helpers\api\user\UserPojo.class
