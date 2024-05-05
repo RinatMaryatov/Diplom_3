@@ -6,9 +6,9 @@ import org.openqa.selenium.WebDriver;
 
 public class LoginPage {
     private final WebDriver driver;
-    private static final By emailField = By.xpath(".//label[text()='Email']/following-sibling::input");
-    private static final By passwordField = By.xpath(".//label[text()='Пароль']/following-sibling::input");
-    private static final By loginButton = By.xpath(".//button[text()='Войти']");
+    private static final By EMAILFIELD = By.xpath(".//label[text()='Email']/following-sibling::input");
+    private static final By PASSWORDFIELD = By.xpath(".//label[text()='Пароль']/following-sibling::input");
+    private static final By LOGINBUTTON = By.xpath(".//button[text()='Войти']");
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
@@ -16,13 +16,13 @@ public class LoginPage {
 
     @Step("Login")
     public void login(String email, String password) {
-        driver.findElement(emailField).sendKeys(email);
-        driver.findElement(passwordField).sendKeys(password);
-        driver.findElement(loginButton).click();
+        driver.findElement(EMAILFIELD).sendKeys(email);
+        driver.findElement(PASSWORDFIELD).sendKeys(password);
+        driver.findElement(LOGINBUTTON).click();
     }
 
    @Step("Get login button")
     public static By getLoginButtonLocator() {
-        return loginButton;
+        return LOGINBUTTON;
     }
 }

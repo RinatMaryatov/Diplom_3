@@ -6,8 +6,8 @@ import org.openqa.selenium.WebDriver;
 
 public class PasswordRecoveryPage {
     private final WebDriver driver;
-    private static final By authButton = By.className("Auth_link__1fOlj");
-    private static final By modalWindow = By.xpath(".//*[@id=\"root\"]/div/div/div");
+    private static final By AUTHBUTTON = By.className("Auth_link__1fOlj");
+    private static final By MODALWINDOW = By.xpath(".//*[@id=\"root\"]/div/div/div");
 
     public PasswordRecoveryPage(WebDriver driver) {
         this.driver = driver;
@@ -15,17 +15,17 @@ public class PasswordRecoveryPage {
 
     @Step("Go to auth page")
     public void goToAuthPage() {
-        driver.findElement(authButton).click();
+        driver.findElement(AUTHBUTTON).click();
     }
 
     @Step("Get auth button locator")
     public static By getAuthButtonLocator() {
-        return authButton;
+        return AUTHBUTTON;
     }
 
     @Step("Get modal window locator")
     public static By getModalWindowLocator() {
-        return modalWindow;
+        return MODALWINDOW;
     }
 
 }

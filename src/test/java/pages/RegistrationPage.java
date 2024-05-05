@@ -6,10 +6,10 @@ import io.qameta.allure.Step;
 
 public class RegistrationPage {
     private final WebDriver driver;
-    private final By nameField = By.xpath(".//label[text()='Имя']/following-sibling::input");
-    private final By emailField = By.xpath(".//label[text()='Email']/following-sibling::input");
-    private final By passwordField = By.xpath(".//label[text()='Пароль']/following-sibling::input");
-    private final By registrationButton = By.xpath(".//button[text() = 'Зарегистрироваться']");
+    private final By NAMEFIELD = By.xpath(".//label[text()='Имя']/following-sibling::input");
+    private final By EMAILFIELD = By.xpath(".//label[text()='Email']/following-sibling::input");
+    private final By PASSWORDFIELD = By.xpath(".//label[text()='Пароль']/following-sibling::input");
+    private final By REGISTRATIONBUTTON = By.xpath(".//button[text() = 'Зарегистрироваться']");
     private static final By authButton = By.className("Auth_link__1fOlj");
     private final By incorrectPassword = By.xpath(".//*[@id=\"root\"]/div/main/div/form/fieldset[3]/div/p");
     private static final By modalWindow = By.xpath(".//*[@id=\"root\"]/div/div/div");
@@ -19,10 +19,10 @@ public class RegistrationPage {
 
     @Step("Registration")
     public void makeRegistration(String name, String email, String password) {
-        driver.findElement(nameField).sendKeys(name);
-        driver.findElement(emailField).sendKeys(email);
-        driver.findElement(passwordField).sendKeys(password);
-        driver.findElement(registrationButton).click();
+        driver.findElement(NAMEFIELD).sendKeys(name);
+        driver.findElement(EMAILFIELD).sendKeys(email);
+        driver.findElement(PASSWORDFIELD).sendKeys(password);
+        driver.findElement(REGISTRATIONBUTTON).click();
     }
 
     @Step("Go to auth page")
