@@ -78,12 +78,6 @@ public class MainPage {
 
     @Step("Get selected section")
     public static By getSelectedSectionLocator() {
-        // Задержка перед получением выбранного раздела
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         return SELECTEDSECTION;
     }
 }

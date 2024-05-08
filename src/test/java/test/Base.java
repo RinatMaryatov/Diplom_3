@@ -7,6 +7,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.Random;
 
@@ -20,20 +21,6 @@ public class Base {
     private String accessToken;
     private static final String YANDEX_DRIVER = "src/main/resources/yandexdriver";
 
-    @Step("Инициализация драйвера")
-    public void initDriver(String browserName) {
-        switch (browserName) {
-            case "chrome":
-                WebDriverManager.chromedriver().setup();
-                driver = new ChromeDriver();
-                break;
-            case "yandex":
-                System.setProperty("webdriver.chrome.driver", YANDEX_DRIVER);
-                driver = new ChromeDriver();
-                break;
-        }
-    }
-
     @Step("Создание тестового пользователя")
     public void createUser() {
         accessToken = UserMethods.createUser(email, password, name).then().extract().path("accessToken").toString();
@@ -45,8 +32,28 @@ public class Base {
     }
 
     @Before
-    public void setUp() {
-        initDriver("chrome");
+    @Step("Создание драйвера браузера")
+    public void createDriver() {
+        String browserName = System.getProperty("browser");
+        if (browserName == null) {
+            browserName = "chrome";
+        }
+
+        ChromeOptions options = new ChromeOptions();
+        switch (browserName) {
+            case "chrome":
+                WebDriverManager.chromedriver().setup();
+                driver = new ChromeDriver(options);
+                break;
+
+            case "yandex":
+                System.setProperty("webdriver.chrome.driver", "src/main/resources/yandexdriver");
+                driver = new ChromeDriver(options);
+                break;
+            default:
+                throw new RuntimeException("Некорректный браузер: " + browserName);
+        }
+        driver.manage().window().maximize();
     }
 
     @After

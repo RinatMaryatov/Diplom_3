@@ -9,7 +9,7 @@ public class PersonalAccount {
     private static final By CONSTRUCTORBUTTON = By.xpath(".//p[text() = 'Конструктор']");
     private static final By LOGOBUTTON = By.xpath(".//*[@id=\"root\"]/div/header/nav/div");
     private static final By MODALWINDOW = By.xpath(".//*[@id=\"root\"]/div/div/div");
-    private static final By LOGOUTBUTTON = By.className("Account_button__14Yp3");
+    private static final By LOGOUTBUTTON = By.xpath(".//*[@id=\"root\"]/div/main/div/nav/ul/li[3]/button");
 
     public PersonalAccount(WebDriver driver) {
         this.driver = driver;

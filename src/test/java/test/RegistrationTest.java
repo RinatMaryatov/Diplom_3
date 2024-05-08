@@ -1,5 +1,6 @@
 package test;
 
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -12,6 +13,7 @@ import static helpers.Urls.REGISTRATION_PAGE;
 
 public class RegistrationTest extends Base {
     @Test
+    @DisplayName("Регистрация с валидными данными")
     public void registrationTest() {
         driver.get(REGISTRATION_PAGE);
         RegistrationPage registrationPage = new RegistrationPage(driver);
@@ -25,6 +27,7 @@ public class RegistrationTest extends Base {
     }
 
     @Test
+    @DisplayName("Регистрация с не валидными данным")
     public void registrationTestWithInvalidPassword() {
         driver.get(REGISTRATION_PAGE);
         RegistrationPage registrationPage = new RegistrationPage(driver);
