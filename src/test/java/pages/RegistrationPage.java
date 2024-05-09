@@ -10,7 +10,7 @@ public class RegistrationPage {
     private final By EMAILFIELD = By.xpath(".//label[text()='Email']/following-sibling::input");
     private final By PASSWORDFIELD = By.xpath(".//label[text()='Пароль']/following-sibling::input");
     private final By REGISTRATIONBUTTON = By.xpath(".//button[text() = 'Зарегистрироваться']");
-    private static final By authButton = By.className("Auth_link__1fOlj");
+    private static final By AUTHBUTTON = By.className("Auth_link__1fOlj");
     private final By incorrectPassword = By.xpath(".//*[@id=\"root\"]/div/main/div/form/fieldset[3]/div/p");
     private static final By modalWindow = By.xpath(".//*[@id=\"root\"]/div/div/div");
     public RegistrationPage(WebDriver driver) {
@@ -27,7 +27,7 @@ public class RegistrationPage {
 
     @Step("Go to auth page")
     public void goToAuthPage() {
-        driver.findElement(authButton).click();
+        driver.findElement(AUTHBUTTON).click();
     }
 
     @Step("Get incorrect password")
@@ -37,7 +37,7 @@ public class RegistrationPage {
 
     @Step("Get auth button locator")
     public static By getAuthButtonLocator() {
-        return authButton;
+        return AUTHBUTTON;
     }
 
     @Step("Get modal window locator")

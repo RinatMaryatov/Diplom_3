@@ -32,7 +32,7 @@ public class LogoutTest extends Base {
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.urlContains(BASE_URL));
 
-        //Пробролсились на главную страницу, теперь перейдем в личный кабинет
+        //Перешли на главную страницу, теперь перейдем в личный кабинет
         MainPage mainPage = new MainPage(driver);
         By modalWindowLocatorBeforeClick = MainPage.getModalWindowLocator();
         new WebDriverWait(driver, Duration.ofSeconds(10))
@@ -41,9 +41,9 @@ public class LogoutTest extends Base {
 
         //Выходим из личного кабинета
         PersonalAccount personalAccount = new PersonalAccount(driver);
-        By modalWindowLocatorBeforeClickLogout = PersonalAccount.getModalWindowLocator();
+        By modalWindowLocatorBeforeClickLogout = PersonalAccount.getModalLWindowLocator();
         new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.invisibilityOfElementLocated(modalWindowLocatorBeforeClickLogout));
+                .until(ExpectedConditions.visibilityOfElementLocated(modalWindowLocatorBeforeClickLogout));
         personalAccount.clickLogoutButton();
 
         //Проверяем, что мы находимся на странице логина

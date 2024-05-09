@@ -9,7 +9,7 @@ public class PersonalAccount {
     private static final By CONSTRUCTORBUTTON = By.xpath(".//p[text() = 'Конструктор']");
     private static final By LOGOBUTTON = By.xpath(".//*[@id=\"root\"]/div/header/nav/div");
     private static final By MODALWINDOW = By.xpath(".//*[@id=\"root\"]/div/div/div");
-    private static final By LOGOUTBUTTON = By.xpath(".//*[@id=\"root\"]/div/main/div/nav/ul/li[3]/button");
+    private static final By LOGOUTBUTTON = By.xpath(".//button[text() = 'Выход']");
 
     public PersonalAccount(WebDriver driver) {
         this.driver = driver;
@@ -28,6 +28,10 @@ public class PersonalAccount {
     @Step("Get modal window locator")
     public static By getModalWindowLocator() {
         return MODALWINDOW;
+    }
+   @Step("Get locator logout button")
+    public static By getModalLWindowLocator() {
+        return LOGOUTBUTTON;
     }
 
     @Step("Click logout button")
